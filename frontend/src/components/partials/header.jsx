@@ -1,4 +1,9 @@
-<img src="/resources/logo.png" alt="logo" className="logo" />
+import logo from '../../assets/logo.png'
+
+const Header = () => {
+  return (
+   <>
+    <img src={logo} alt="logo" className="logo" />
 <ul className="nav-bar-links">
   <li>
     <a className="index-link" href="#">INICIO</a>
@@ -20,3 +25,8 @@
           search
           </span>             
   </div>
+   </>
+  );
+};
+
+export default Header;

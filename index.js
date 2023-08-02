@@ -1,16 +1,18 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const router = require('./routes/router')
+const router = require('./server/routes/router')
 const path = require('path')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const methodOverride = require('method-override');
+const cors = require('cors');
 const bcrypt = require('bcrypt')
 const PORT = 3000
 const unDia = 1000 * 60 * 60 * 24
 const app = express()
 
+app.use(cors());
 app.use(methodOverride());
 app.use(cookieParser())
 app.use(morgan('tiny'))

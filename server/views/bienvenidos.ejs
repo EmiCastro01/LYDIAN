@@ -9,16 +9,16 @@
   <title>Home</title>
 </head>
 <body>
-  <div class="main-container">
-    <header class="header">
+  <div className="main-container">
+    <header className="header">
       <%- include('./partials/header.ejs') %>
     </header> 
-      <div class="banner">
+      <div className="banner">
       </div>
-      <div class="main-sections-container">
-        <section class="left-section">
-          <div class="left-content">
-            <p class="product-path">Instrumentos > Guitarras > Acústicas</p>
+      <div className="main-sections-container">
+        <section className="left-section">
+          <div className="left-content">
+            <p className="product-path">Instrumentos > Guitarras > Acústicas</p>
           </div>
           <select name="filtros">
             <option value="usados">Usados</option>
@@ -31,59 +31,59 @@
             <option value="ubicacion" selected >Ubicacion</option>
           </select>
         </section>
-        <section class="products-section">
-          <article class="product-content">
-            <div class="product-img">
-              <img class="product" src="resources/fender-acoustic.jpg" alt="product" />
+        <section className="products-section">
+          <article className="product-content">
+            <div className="product-img">
+              <img className="product" src="resources/fender-acoustic.jpg" alt="product" />
             </div>
-            <div class="product-details">
-              <div class="product-name">
+            <div className="product-details">
+              <div className="product-name">
                 <h3>Guitarra Acústica Fender</h3>
               </div>
-              <div class="price-details">
+              <div className="price-details">
                   <p>$ 80.000</p>
                   <p>Vendedor: Olmos-music</p>
               </div>
             </div>
           </article>
-          <article class="product-content">
-            <div class="product-img">
-              <img class="product" src="resources/alesis-nitromesh.jpg" alt="product" />
+          <article className="product-content">
+            <div className="product-img">
+              <img className="product" src="resources/alesis-nitromesh.jpg" alt="product" />
             </div>
-            <div class="product-details">
-              <div class="product-name">
+            <div className="product-details">
+              <div className="product-name">
                 <h3>Alesis Nitro Mesh kit</h3>
               </div>
-              <div class="price-details">
+              <div className="price-details">
                   <p>$ 300.999</p>
                   <p>Vendedor: Emi Castro</p>
               </div>
             </div>
           </article>
-          <article class="product-content">
-            <div class="product-img">
-              <img class="product" src="resources/taylor-acoustic.jpg" alt="product" />
+          <article className="product-content">
+            <div className="product-img">
+              <img className="product" src="resources/taylor-acoustic.jpg" alt="product" />
             </div>
-            <div class="product-details">
-              <div class="product-name">
+            <div className="product-details">
+              <div className="product-name">
                 <h3>Guitarra Acústica Taylor</h3>
               </div>
-              <div class="price-details">
+              <div className="price-details">
                   <p>$ 120.000</p>
                   <p>Vendedor: Olmos-music</p>
               </div>
             </div>
           </article>
           <a href="detail-product">
-          <article class="product-content">
-            <div class="product-img">
-              <img class="product" src="resources/daddario.jpg" alt="product" />
+          <article className="product-content">
+            <div className="product-img">
+              <img className="product" src="resources/daddario.jpg" alt="product" />
             </div>
-            <div class="product-details">
-              <div class="product-name">
+            <div className="product-details">
+              <div className="product-name">
                 <h3>Cuerdas D'Addario</h3>
               </div>
-              <div class="price-details">
+              <div className="price-details">
                   <p>$ 2.500</p>
                   <p>Vendedor: Olmos-music</p>
               </div>
@@ -92,7 +92,7 @@
           </a>
         </section>
       </div>
-    <footer class="footer">
+    <footer className="footer">
       <%- include('./partials/footer.ejs') %>
     </footer>
   </div>
