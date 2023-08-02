@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+</head>
+<body>
+  <div class="main-container">
+  <header class="header">
+    <%- include('./partials/header.ejs') %>
+</header> 
+  <section class="cart-container">
+    <div class="cart-title">CARRITO</div>
+    <article class="cart-article">
+      <img src="resources/daddario.jpg" alt="article" />
+      <div class="cart-name-and-delete">
+        <h3>Cuerdas D'Addario</h3>
+        <a href="/">Eliminar</a>
+      </div>
+      <div class="cart-article-counter">
+        <span class="material-symbols-outlined">
+          add
+          </span>
+          <p>1</p>
+          <span class="material-symbols-outlined">
+            remove
+            </span>
+      </div>
+      <h3>$ 2500</h3>
+    </article>
+    <article class="cart-article">
+      <img src="resources/alesis-nitromesh.jpg" alt="article" />
+      <div class="cart-name-and-delete">
+        <h3>Alesis Nitro Mesh</h3>
+        <a href="/">Eliminar</a>
+      </div>
+      <div class="cart-article-counter">
+        <span class="material-symbols-outlined">
+          add
+          </span>
+          <p>1</p>
+          <span class="material-symbols-outlined">
+            remove
+            </span>
+      </div>
+      <h3>$ 300.000</h3>
+    </article>
+    <article class="cart-article">
+      <img src="resources/fender-acoustic.jpg" alt="article" />
+      <div class="cart-name-and-delete">
+        <h3>Guitarra Fender</h3>
+        <a href="/">Eliminar</a>
+      </div>
+      <div class="cart-article-counter">
+        <span class="material-symbols-outlined">
+          add
+          </span>
+          <p>1</p>
+          <span class="material-symbols-outlined">
+            remove
+            </span>
+      </div>
+      <h3>$ 180.000</h3>
+    </article>
+        <article class="cart-shipment">
+          <p>Envío</p>
+          <p class="cart-shipment-price">Gratis</p>
+        </article>
+        <article class="cart-total">
+          <p>TOTAL</p>
+          <h3>$482.500</p>
+        </article>
+            <article class="cart-buy">
+              <button type="button" class="cart-buy-button">COMPRAR</button>
+            </article>
+  </section>
+  </div>
+    <footer class="footer">
+      <%- include('./partials/footer.ejs') %>
+    </footer>
+  </div>
+</body>
+</html>
