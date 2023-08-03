@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
+
+  const navigate = useNavigate();
   const [datos, setDatos] = useState({
     email: '',
     contrasena: ''
@@ -13,8 +15,9 @@ const Login = () => {
 
     axios.post('http://localhost:3000/login', datos)
       .then(response => {
-        console.log(response) }) 
+        console.log(response)})
       .catch(err => console.log("error"))
+      navigate('/');
   }
 
 
@@ -31,7 +34,7 @@ const Login = () => {
             <Link to="/login">Olvidé mi contraseña</Link>
             <Link to="/register">Registrarse</Link>
           </div>
-          <button className="submit-button" type='submit'>
+          <button  className="submit-button" type='submit'>
             Ingresar
           </button>
         </form>

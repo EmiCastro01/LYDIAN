@@ -30,7 +30,7 @@ const Card = (props) => {
           </div>
           <div className="price-details">
             <p>Precio: ${props.productPrice}</p>
-            <p>Vendedor: ${props.productSeller}</p>
+            <p>Vendedor: {props.productSeller}</p>
             <Link className="link-button-add-cart"to="" onClick={handleAddToCart}>
               Agregar al Carrito
             </Link>

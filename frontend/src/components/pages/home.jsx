@@ -71,7 +71,7 @@ const Home = () => {
         <div className="main-sections-container">
           <section className="left-section">
             <div className="left-content">
-              <p className="product-path"></p>
+              <h2 className="product-path">Aplicar Filtros</h2>
             </div>
             <input
               type="number"
@@ -104,7 +104,7 @@ const Home = () => {
                 />
               </div>
             ))) : (
-              <h2>Sin Resultados!!</h2>
+              <h2>Sin Resultados</h2>
             )}
           </section>
         </div>
