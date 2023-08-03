@@ -50,7 +50,7 @@ import axios from 'axios';
         {products.map((product) => (
         <div key={product.id}>
           <Card productName={product.name} productImg={product.imageSrc} productPrice={product.price} productSeller={product.seller}
-          onClick={() => { location.href = `/detail-product/${product.id}` }}/>
+          id={product.id}/>
         </div>
       ))}
         </section>

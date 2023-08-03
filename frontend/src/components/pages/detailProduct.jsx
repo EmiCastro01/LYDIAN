@@ -1,21 +1,31 @@
-
-import React, { useContext, useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom'
-import axios from 'axios';
-import {Link} from 'react-router-dom'
+import React , {useContext}from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useCartStore } from '../cartStorage'
 import { dataContext } from '../dataContext';
 
-const DetailProduct = (props) => {
- 
-  const{id} = useParams()
-  const {products} = useContext(dataContext)
-  console.log(id)
-  const product = products.find((product) => product.id === parseInt(id));  
+const DetailProduct = () => {
+  const { id } = useParams();
+  const { products } = useContext(dataContext);
+
+  // Obtén el estado y las funciones del carrito desde Zustand
+  const { addToCart } = useCartStore();
+
+  const product = products.find((product) => product.id === parseInt(id));
   if (!product) {
     return <div>Cargando...</div>;
   }
-  return(
+
+  const handleAddToCart = () => {
+
+    // Agregar el producto al carrito utilizando la función de Zustand
+    addToCart(product);
+    console.log("Producto agregado al carrito:", product);
+  };
+
+  return (
     <>
+     
+
       <article className="product-detail-container">
         <div className="product-detail-img">
           <img src={product.imageSrc} alt={product.name} />
@@ -27,15 +37,14 @@ const DetailProduct = (props) => {
             <p className="product-detail-description">{product.cap}</p>
           </div>
           <div className="product-detail-buttons">
-            <button type="button" className="buy-now">Comprar Ahora</button>
-            <button type="button" className="go-to-cart">Agregar al Carrito</button>
+            <Link to="/cart" type="button" className="buy-now">
+              Ir al Carrito
+            </Link>
           </div>
         </div>
       </article>
-  </>
-  )
-  
+    </>
+  );
+};
 
-}
-
-export default DetailProduct
+export default DetailProduct;

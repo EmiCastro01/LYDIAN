@@ -1,4 +1,5 @@
 import logo from '../../assets/logo.png'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -6,24 +7,22 @@ const Header = () => {
     <img src={logo} alt="logo" className="logo" />
 <ul className="nav-bar-links">
   <li>
-    <a className="index-link" href="#">INICIO</a>
+    <Link to="/" className="index-link" >INICIO</Link>
   </li>
   <li>
     <a className="help-link" href="/">AYUDA</a>
   </li>
 </ul>
   <div className="icon-container">
-    <a href="cart">
-    <span className="material-symbols-outlined">
+    <Link to="/cart"  className="material-symbols-outlined">
       shopping_cart
-      </span>
-    </a>
-      <span className="material-symbols-outlined">
+      </Link>
+      <Link to="/user" className="material-symbols-outlined">
         account_circle
-        </span> 
-        <span className="material-symbols-outlined">
+        </Link> 
+        <Link className="material-symbols-outlined">
           search
-          </span>             
+          </Link>             
   </div>
    </>
   );

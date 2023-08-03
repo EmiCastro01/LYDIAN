@@ -10,6 +10,7 @@ import Home from '../components/pages/home';
 import Login from '../components/pages/login';
 import  SignUp  from '../components/pages/signUp';
 import DetailProduct from "../components/pages/detailProduct";
+import Cart from "../components/pages/cart";
  
 
 export const routesConfig = [
@@ -37,6 +38,11 @@ export const routesConfig = [
     path: '/detail-product/:id',
     component: DetailProduct,
     name: 'DETALLE DEL PRODUCTO'
+  },
+  {
+    path: 'cart',
+    component: Cart,
+    name: 'CARRITO'
   }
 
 ];
