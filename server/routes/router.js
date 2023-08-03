@@ -32,6 +32,7 @@ const routes = (app) => {
 app.post('/login', userController.login);
 app.get('/logout', userController.logout);
 app.get('/error', userController.errorView);
+app.post('/checkout', userController.checkout);
 }
 
 module.exports = {

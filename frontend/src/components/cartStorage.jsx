@@ -1,7 +1,8 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 
 const initialState = {
   cart: [],
+  totalAmount: 0,
 };
 
 export const useCartStore = create((set) => ({
@@ -22,6 +23,12 @@ export const useCartStore = create((set) => ({
   clearCart: () => {
     set((state) => ({
       cart: [],
+    }));
+  },
+
+  setTotalAmount: (amount) => {
+    set(() => ({
+      totalAmount: amount,
     }));
   },
 }));

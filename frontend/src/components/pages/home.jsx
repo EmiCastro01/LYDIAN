@@ -1,69 +1,119 @@
-import Card from '../common/Card'
-import {Header, Footer} from '../partials'
+import Card from '../common/Card';
+import { Header, Footer } from '../partials';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const Home = () => {
+  const [products, setProducts] = useState([]);
+  const [priceFilter, setPriceFilter] = useState({
+    min: "",
+    max: "",
+  });
+  const [nameFilter, setNameFilter] = useState("");
 
-  const Home = () => {
-   //IMPLEMENTAR EL TEMA DE LA SESION 
-    const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/products');
+        setProducts(response.data);
+      } catch (error) {
+        console.error('Error al hacer la solicitud:', error);
+      }
+    };
 
-    useEffect(() => {
-      const fetchProducts = async () => {
-        try {
-          const response = await axios.get('http://localhost:3000/products');
-          setProducts(response.data);
-        } catch (error) {
-          console.error('Error al hacer la solicitud:', error);
-        }
-      };
-  
-      fetchProducts();
-    }, []);
-  
-    return (
-        <>
-        <div className="main-container">
-    <header className="header">
-      <Header />
-    </header> 
-      <div className="banner">
-      </div>
-      <div className="main-sections-container">
-        <section className="left-section">
-          <div className="left-content">
-            <p className="product-path"></p>
-          </div>
-          <select name="filtros">
-            <option value="usados">Usados</option>
-            <option value="nuevos">Nuevos</option>
-            <option value="filtros" defaultValue >Filtros</option>
-          </select>
-          <select name="ubicacion">
-            <option value="Cordoba">Usados</option>
-            <option value="Buenos Aires">Nuevos</option>
-            <option value="ubicacion" defaultValue >Ubicacion</option>
-          </select>
-        </section>
-        <section className="products-section">
+    fetchProducts();
+  }, []);
 
-        {products.map((product) => (
-        <div key={product.id}>
-          <Card productName={product.name} productImg={product.imageSrc} productPrice={product.price} productSeller={product.seller}
-          id={product.id}/>
+  const filterProducts = () => {
+    let filteredProducts = [...products];
+
+    if (priceFilter.min !== "") {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price >= parseInt(priceFilter.min)
+      );
+    }
+
+  if (priceFilter.max !== "") {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price <= parseInt(priceFilter.max)
+      );
+    }
+    if (nameFilter) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.name.toLowerCase().includes(nameFilter.toLowerCase())
+      );
+    }
+
+    return filteredProducts;
+  };
+
+  const handleMinPriceFilterChange = (event) => {
+    setPriceFilter({ ...priceFilter, min: event.target.value });
+  };
+
+  const handleMaxPriceFilterChange = (event) => {
+    setPriceFilter({ ...priceFilter, max: event.target.value });
+  };
+
+  const handleNameFilterChange = (event) => {
+    setNameFilter(event.target.value);
+  };
+
+  const filteredProducts = filterProducts();
+
+  return (
+    <>
+      <div className="main-container">
+        <header className="header">
+          <Header />
+        </header>
+        <div className="banner"></div>
+        <div className="main-sections-container">
+          <section className="left-section">
+            <div className="left-content">
+              <p className="product-path"></p>
+            </div>
+            <input
+              type="number"
+              placeholder="Precio Mínimo"
+              value={priceFilter.min}
+              onChange={handleMinPriceFilterChange}
+            />
+            <input
+              type="number"
+              placeholder="Precio Máximo"
+              value={priceFilter.max}
+              onChange={handleMaxPriceFilterChange}
+            />
+            <input
+              type="text"
+              placeholder="Buscar por nombre"
+              onChange={handleNameFilterChange}
+            />
+          </section>
+          <section className="products-section">
+            {
+            filteredProducts.length > 0 ? (filteredProducts.map((product) => (
+              <div key={product.id}>
+                <Card
+                  productName={product.name}
+                  productImg={product.imageSrc}
+                  productPrice={product.price}
+                  productSeller={product.seller}
+                  id={product.id}
+                />
+              </div>
+            ))) : (
+              <h2>Sin Resultados!!</h2>
+            )}
+          </section>
         </div>
-      ))}
-        </section>
+        <footer className="footer">
+          <Footer />
+        </footer>
       </div>
-    <footer className="footer">
-      <Footer />
-    </footer>
-  </div>
-        
-        </>
+    </>
+  );
+};
 
-
-    )
-  }
-
-  export default Home
+export default Home;

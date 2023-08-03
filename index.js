@@ -13,11 +13,17 @@ const unDia = 1000 * 60 * 60 * 24
 const app = express()
 
 app.use(express.json())
-app.use(cors());
+app.use(cors(
+  {
+    origin: ['http://localhost:8000'],
+    methods: ['GET', 'POST'],
+    credentials: true
+  }
+));
 app.use(methodOverride());
 app.use(cookieParser())
 app.use(morgan('tiny'))
-app.use(bodyParser.urlencoded({extended :false}))
+app.use(bodyParser.urlencoded({extended :true}))
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.use(session({

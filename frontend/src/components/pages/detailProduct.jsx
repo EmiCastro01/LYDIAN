@@ -2,6 +2,8 @@ import React , {useContext}from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useCartStore } from '../cartStorage'
 import { dataContext } from '../dataContext';
+import { Header, Footer } from '../partials';
+
 
 const DetailProduct = () => {
   const { id } = useParams();
@@ -24,7 +26,9 @@ const DetailProduct = () => {
 
   return (
     <>
-     
+     <header className="header">
+      <Header />
+      </header>
 
       <article className="product-detail-container">
         <div className="product-detail-img">
@@ -43,6 +47,9 @@ const DetailProduct = () => {
           </div>
         </div>
       </article>
+      <footer className="footer">
+      <Footer/>
+      </footer>
     </>
   );
 };

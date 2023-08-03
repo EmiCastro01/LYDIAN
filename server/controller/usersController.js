@@ -53,6 +53,7 @@ const login = async (req, res) => {
         req.session.userId = user.id 
         req.session.us = user.name;
         req.session.showGreeting = true;
+        console.log(req.session)
         res.status(200)
       } else {
         req.session.showGreeting = false;
@@ -69,6 +70,7 @@ const login = async (req, res) => {
 
 
 const loginView = (req, res) => {
+  console.log("HOOALAAALALl")
   res.render(path.join(__dirname, '../views/login.ejs'))
 }
 
@@ -133,6 +135,10 @@ const errorView = (req,res) =>{
   }
   )
 }
+
+const checkout = (req, res) => {
+console.log('aca Se rescibieron los datos de la orden desde el Back')
+}
 module.exports = {
   homeView,
   cart,
@@ -143,6 +149,8 @@ module.exports = {
   signUpView,
   logout,
   usersView,
-  errorView
+  errorView,
+  checkout,
+  
 }
 

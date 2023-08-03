@@ -10,7 +10,6 @@ import Header from './components/partials/header'
 import Footer from './components/partials/footer'
 import RouterApp from './routes/router';
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import DataProvider from './components/dataContext';
 
 function App() {

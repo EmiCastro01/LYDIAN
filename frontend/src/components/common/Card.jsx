@@ -26,15 +26,15 @@ const Card = (props) => {
         </div>
         <div className="product-details">
           <div className="product-name">
-            <h3>{props.productName}</h3>
+            <h3 >{props.productName}</h3>
           </div>
           <div className="price-details">
-            <p>{props.productPrice}</p>
-            <p>{props.productSeller}</p>
-            <Link to="" onClick={handleAddToCart}>
+            <p>Precio: ${props.productPrice}</p>
+            <p>Vendedor: ${props.productSeller}</p>
+            <Link className="link-button-add-cart"to="" onClick={handleAddToCart}>
               Agregar al Carrito
             </Link>
-            <Link to={`/detail-product/${props.id}`}>Ver detalle</Link>
+            <Link className="link-button-detail-product" to={`/detail-product/${props.id}`}>Ver detalle</Link>
           </div>
         </div>
       </article>
