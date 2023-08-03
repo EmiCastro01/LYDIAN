@@ -2,7 +2,8 @@
 const Card = (props) => {
   return (
     
-      <>
+      <div onClick={props.onClick}>
+
          <article className="product-content">
             <div className="product-img">
               <img className="product" src={props.productImg} alt="product" />
@@ -17,7 +18,7 @@ const Card = (props) => {
               </div>
             </div>
           </article>
-      </>
+      </div>
    
   );
 };

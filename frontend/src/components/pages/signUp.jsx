@@ -1,48 +1,57 @@
+import {Link} from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const SignUp = () => {
 
 
   const [datos, setDatos] = useState({
-    name: '',
-    email: '',
-    lastname: '',
-    password: '',
-    domicilio: '',
-    telnum: '',
+    nombre: '',
+    apellido: '',
+    correo: '',
+    contrasena: '',
+    direccion: '',
+    telefono: 1
   });
-<>
-<article className="register-container">
-        <h3 className="register-title">Nueva Cuenta</h3>
-          <form className="register-form">
-            <label for="name">Nombre</label>
-            <input type="text" name="name" id="name"
-            onChange={(e) => setDatos({ ...datos, name: e.target.value })}/>
-            <label for="lastname">Apellido</label>
-            <input type="text" name="lastname" id="lastname"
-            onChange={(e) => setDatos({ ...datos, lastname: e.target.value })}/>
-            <label for="e-mail">Email</label>
-            <input type="email" name="e-mail" id="e-mail"
-            onChange={(e) => setDatos({ ...datos, email: e.target.value })}/>
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password"
-            onChange={(e) => setDatos({ ...datos, password: e.target.value })}/>
-            <label for="domicilio">Domicilio</label>
-            <input type="text" name="text" id="text"
-            onChange={(e) => setDatos({ ...datos, domicilio: e.target.value })}/>
-            <label for="telnum">Numero de Celular</label>
-            <input type="number" name="telnum" id="telnum"
-            onChange={(e) => setDatos({ ...datos, telnum: e.target.value })}/>
-            <input type="submit" name="submit" id="submit" value="Registrarse" className="submit-button"/>
-          </form>
-            <div className="already-registered">
-              <p>Ya estás registrado? </p>
-              <a href="../views/login.html"> Inicia sesión</a>
-            </div>
-      </article>
+
+  function handleFormSubmit(event){
+    event.preventDefault();
+    console.log(datos)
+ 
+    axios.post('http://localhost:3000/signup', datos)
+    .then(response => console.log(response))
+    .catch(err => console.log("KJASHDKJHASDKJHASKDJHASKJDHKJSAHD"))
+  }
+  
+
+  
+return(
+  <>
+ <article className="register-container">
+ <form onSubmit={handleFormSubmit} className="register-form" >
+    <label htmlFor="name">Nombre</label>
+    <input type="text" name="nombre" placeholder="Ingrese su nombre" id="name" required onChange={(e) => setDatos({ ...datos, nombre: e.target.value })}/>
+    <label htmlFor="email">e-mail</label>
+    <input type="email" name="correo" placeholder="Ingrese su e-mail" id="email" required onChange={(e) => setDatos({ ...datos, correo: e.target.value })}/>
+    <label htmlFor="lastname">lastname</label>
+    <input type="text" name="apellido" placeholder="Ingrese su apellido" id="lastname" required onChange={(e) => setDatos({ ...datos, apellido: e.target.value })}/>
+    <label htmlFor="password">Contraseña</label>
+    <input type="password" name="contrasena" placeholder="Ingrese su contraseña" id="password" required onChange={(e) => setDatos({ ...datos, contrasena: e.target.value })}/>
+    <label htmlFor="domicilio">Domicilio</label>
+    <input type="text" name="direccion" placeholder="Ingrese su domicilio" id="domicilio" required onChange={(e) => setDatos({ ...datos, direccion: e.target.value })}/>
+    <label htmlFor="numcel">Numero de Celular</label>
+    <input type="number" name="telefono" placeholder="Ingrese su numero de telefono" id="numcel" required onChange={(e) => setDatos({ ...datos, telefono: parseInt(e.target.value) })}/>
+    <button type="submit">Agregar usuario</button> 
+    <Link to="/login">Ya tengo usuario</Link>
+    </form>
+ </article>
+     
+    
 </>
+
+
+)
+
 
 }
 export default SignUp
-
-
-

@@ -40,11 +40,12 @@ const cart = (req, res) => {
 }
 
 const login = async (req, res) => {
-  const {email, password} = req.body;
+  console.log(req.body)
+  const {email, contrasena} = req.body;
 
   try{
       const user = await Users.findOne({ where: { email: email } });
-      if (user && bcrypt.compareSync(password, user.password)) {
+      if (user && bcrypt.compareSync(contrasena, user.password)) {
           res.cookie('username', user.name, {
               maxAge: 1000 * 60 * 60 * 24,
               httpOnly: true,
@@ -52,10 +53,10 @@ const login = async (req, res) => {
         req.session.userId = user.id 
         req.session.us = user.name;
         req.session.showGreeting = true;
-        res.redirect('/home');
+        res.status(200)
       } else {
         req.session.showGreeting = false;
-       res.render('error')
+       console.error("Usuario o contraseña incorrectas")
        
       }
 
@@ -75,38 +76,45 @@ const register = (req, res) => {
 res.render(path.join(__dirname, '../views/register.ejs'))
 }
 
-const signUp = async(req, res, next) => { 
-  const errors = validationResult(req)         
-  if(!errors.isEmpty()) {
-    return res.status(422).json({errors: errors.array()})
-  } else {
+const signUp = async (req, res, next) => { 
+  console.log("EU")
+  console.log(req.body.nombre);
+ const errors = validationResult(req);
+ console.log(errors)
+
+  /*if (!errors.isEmpty()) {
+    // Si hay errores de validación, envía los errores en la respuesta.
+    return res.status(422).json({ errors: errors.array() });
+  } else { */
     try {
       const lastUser = await Users.findOne({
         order: [['id', 'DESC']]
-      })
-      let newID = 0
-      if(lastUser.id === 0){
+      });
+      let newID = 0;
+
+      if (lastUser) {
+        newID = lastUser.id + 1;
+      } else {
         newID = 1;
-      }else {newID = lastUser.id ++}
+      }
 
       const userData = {
         id: newID,
-        email: req.body.email,
-        name: req.body.name,
-        lastname: req.body.lastname,
-        password: req.body.password,
-        domicilio: req.body.domicilio,
-        numcel: req.body.numcel,
-      }
-
-      await writeUser(userData)
-
-    } catch (error){
-      res.status(500).send('Error al agregar usuario'+ error.message);
+        name: req.body.nombre,
+        email: req.body.correo,
+        lastname: req.body.apellido,
+        password: req.body.contrasena,
+        domicilio: req.body.direccion,
+        numcel: req.body.telefono,
+      };
+      await writeUser(userData);
+      res.status(201).json({ message: 'Usuario registrado exitosamente' });
+    } catch (error) {
+      console.error('Error al agregar usuario', error);
+      res.status(500).json({ error: 'Error al agregar usuario' });
     }
-  }
-  res.redirect('/')
-}
+// }
+};
 
 const signUpView = (req, res) => {
 res.render(path.join(__dirname, '../views/signUp.ejs'))

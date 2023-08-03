@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
   const Home = () => {
+   //IMPLEMENTAR EL TEMA DE LA SESION 
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -48,7 +49,8 @@ import axios from 'axios';
 
         {products.map((product) => (
         <div key={product.id}>
-          <Card productName={product.name} productImg={product.imageSrc} productPrice={product.price} productSeller={product.seller}/>
+          <Card productName={product.name} productImg={product.imageSrc} productPrice={product.price} productSeller={product.seller}
+          onClick={() => { location.href = `/detail-product/${product.id}` }}/>
         </div>
       ))}
         </section>
