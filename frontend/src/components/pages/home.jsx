@@ -10,6 +10,7 @@ const Home = () => {
     max: "",
   });
   const [nameFilter, setNameFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -33,14 +34,21 @@ const Home = () => {
       );
     }
 
-  if (priceFilter.max !== "") {
+    if (priceFilter.max !== "") {
       filteredProducts = filteredProducts.filter(
         (product) => product.price <= parseInt(priceFilter.max)
       );
     }
+
     if (nameFilter) {
       filteredProducts = filteredProducts.filter((product) =>
         product.name.toLowerCase().includes(nameFilter.toLowerCase())
+      );
+    }
+
+    if (categoryFilter) {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.type === categoryFilter
       );
     }
 
@@ -50,13 +58,17 @@ const Home = () => {
   const handleMinPriceFilterChange = (event) => {
     setPriceFilter({ ...priceFilter, min: event.target.value });
   };
-
+ 
   const handleMaxPriceFilterChange = (event) => {
     setPriceFilter({ ...priceFilter, max: event.target.value });
   };
 
   const handleNameFilterChange = (event) => {
     setNameFilter(event.target.value);
+  };
+
+  const handleCategoryFilterChange = (event) => {
+    setCategoryFilter(event.target.value);
   };
 
   const filteredProducts = filterProducts();
@@ -90,20 +102,30 @@ const Home = () => {
               placeholder="Buscar por nombre"
               onChange={handleNameFilterChange}
             />
+            <select
+              value={categoryFilter}
+              onChange={handleCategoryFilterChange}
+            >
+              <option value="">Todas las Categorías</option>
+              <option value="Accesorios">Accesorios</option>
+              <option value="Percusion">Percusión</option>
+              <option value="Cuerdas">Cuerdas</option>
+            </select>
           </section>
           <section className="products-section">
-            {
-            filteredProducts.length > 0 ? (filteredProducts.map((product) => (
-              <div key={product.id}>
-                <Card
-                  productName={product.name}
-                  productImg={product.imageSrc}
-                  productPrice={product.price}
-                  productSeller={product.seller}
-                  id={product.id}
-                />
-              </div>
-            ))) : (
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <div key={product.id}>
+                  <Card
+                    productName={product.name}
+                    productImg={product.imageSrc}
+                    productPrice={product.price}
+                    productSeller={product.seller}
+                    id={product.id}
+                  />
+                </div>
+              ))
+            ) : (
               <h2>Sin Resultados</h2>
             )}
           </section>
