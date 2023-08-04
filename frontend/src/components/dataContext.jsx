@@ -9,6 +9,7 @@ const DataProvider = ({ children }) => {
   const { addToCart, removeFromCart, clearCart } = useCartStore();
   const [userData, setUserData] = useState(null)
 
+
   useEffect(() => {
     axios.get("http://localhost:3000/products")
       .then((response) => response.data)

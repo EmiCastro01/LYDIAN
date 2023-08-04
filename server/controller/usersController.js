@@ -48,8 +48,10 @@ const login = async (req, res) => {
           res.json({
            canLogin: true,
            username: user.name,
+           domicilio: user.domicilio, 
+           id: user.id
             })
-            
+        req.session.dir = user.domicilio    
         req.session.userId = user.id 
         req.session.us = user.name;
         req.session.showGreeting = true;
@@ -139,8 +141,20 @@ const errorView = (req,res) =>{
   )
 }
 
-const checkout = (req, res) => {
-console.log('aca Se rescibieron los datos de la orden desde el Back')
+const checkout = async (req, res) => {
+  const checkoutData ={
+    total: req.body.totalAmount,
+    usID: req.body.Id,
+    domicilio: req.body.domicilio 
+  } 
+console.log(checkoutData)
+  try {
+    await writeCheckout(checkoutData)
+    console.log("Checkout completa cargada en la Base de Datos")
+  } catch (err) {
+    console.error("error al cargar la cuenta en la base de datos: ", err)
+  }
+
 }
 module.exports = {
   homeView,

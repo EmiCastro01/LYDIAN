@@ -21,7 +21,12 @@ const Login = () => {
         if (!response.data.canLogin) {
           setErrorMessage('Usuario o contraseña incorrectos');
         } else {
-          setUserData(response.data.username); // guardo la info del usuario en el contexto
+          setUserData({
+            canLogin: response.data.canLogin,
+            username: response.data.username,
+            domicilio: response.data.domicilio,
+            id: response.data.id
+          }); // guardo la info del usuario en el contexto
           navigate('/');
         }
       })

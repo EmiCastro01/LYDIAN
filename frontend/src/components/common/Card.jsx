@@ -6,7 +6,6 @@ import {dataContext} from '../dataContext'
 const Card = (props) => {
   const { addToCart } = useCartStore();
   const {userData} = useContext(dataContext)
-  const navigate = useNavigate();
 
   const handleAddToCart = (event) => {
     if(userData){

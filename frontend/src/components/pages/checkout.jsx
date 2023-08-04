@@ -1,22 +1,26 @@
-import React from 'react';
+import React , { useContext}from 'react';
 import { useCartStore } from '../cartStorage';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {Header, Footer} from '../partials'
+import { dataContext } from '../dataContext'; 
 
 const Checkout = () => {
+  const {userData} = useContext(dataContext)
   const { cart, totalAmount } = useCartStore();
   const navigate = useNavigate();
 
   const handleCheckout = () => {
+    const Id = userData.id
+    const domicilio = userData.domicilio
     const data = {
-      cart,
+      Id,
+      domicilio,
       totalAmount,
     };
 
     axios.post('http://localhost:3000/checkout', data)
       .then((response) => {
-        console.log('Orden de compra enviada al backend:', response.data);
       })
       .catch((error) => {
         console.error('Error al enviar la orden de compra al backend:', error);
