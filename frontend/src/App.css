@@ -429,6 +429,16 @@ h3{
 .cart-buy-button:hover {
   background-color: var(--main-color);
 }
+.is-on-cart-container{
+  display: flex;
+  background-color: var(--header-color);
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+}
+.is-on-cart{
+ align-self: center;
+ color: white
+}
 .seller{
   align-self: center;
 

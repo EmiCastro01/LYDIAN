@@ -62,7 +62,6 @@ const login = async (req, res) => {
         res.send(error)
         req.session.showGreeting = false;
        console.error("Usuario o contraseña incorrectas")
-       
       }
 
   }catch (error) {
@@ -74,7 +73,6 @@ const login = async (req, res) => {
 
 
 const loginView = (req, res) => {
-  console.log("HOOALAAALALl")
   res.render(path.join(__dirname, '../views/login.ejs'))
 }
 

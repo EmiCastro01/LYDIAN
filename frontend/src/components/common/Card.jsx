@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCartStore } from '../cartStorage';
 import {dataContext} from '../dataContext'
 
 const Card = (props) => {
+  const[isOnCart, setIsOnCart] = useState(false);
   const { addToCart } = useCartStore();
   const {userData} = useContext(dataContext)
 
@@ -19,6 +20,7 @@ const Card = (props) => {
         imageSrc: props.productImg,
       });
       console.log('Producto agregado al carrito:', props.productName);
+    setIsOnCart(true)
     }else{
       window.location.href = '/register'
     }
@@ -42,10 +44,17 @@ const Card = (props) => {
 
           <div className="price-details">
            
-          
-            <Link className="link-button-add-cart"to="" onClick={handleAddToCart}>
-              Agregar al Carrito
-            </Link>
+          {!isOnCart ? (
+  <Link className="link-button-add-cart"to="" onClick={handleAddToCart}>
+  Agregar al Carrito
+</Link> 
+          ) : (
+            < div className="is-on-cart-container">
+              <p className="is-on-cart">Agregado</p>
+            </div>
+          )
+           
+          }
             <Link className="link-button-detail-product" to={`/detail-product/${props.id}`}>Detalles</Link>
           </div>
         </div>

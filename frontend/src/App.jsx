@@ -20,12 +20,9 @@ function App() {
     <DataProvider>
     <BrowserRouter>
       <RouterApp />
-    
         </BrowserRouter>
-
     </DataProvider>
      
-  
     </>
   );
 }
