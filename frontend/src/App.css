@@ -463,7 +463,11 @@ label{
   border: solid 1px var(--main-color);
   border-radius: 5px;
 }
-
+.error-message {
+  font-size:smaller;
+  background-color: rgba(209, 5, 5, 0.596);
+  color:white;
+}
 .submit-button {
   margin-top: 1rem;
   background-color: var(--main-color);

@@ -8,7 +8,7 @@ const { getUsers } = require('../services/userAcces.js');
 const routes = (app) => {
 
   app.get('/products', productsController.productsView);
-  app.get('/users', userController.usersView);
+  app.get('/users', userController.users);
   app.get('/home', userController.homeView);
   app.get('/', userController.signUpView);
   app.get('/detail-product/:id',  productsController.detailProduct);

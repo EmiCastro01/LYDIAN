@@ -9,24 +9,23 @@ const { writeUser, getUsers } = require('../services/userAcces')
 
 
 
-const usersView = (req,res,next) => {
-  return  Users.findAll()
-  .then( Users => {  
-                if( Users ) {res.render(path.join(__dirname, '../views/users.ejs'), { Users })}
-                else {
-                       const err = {}
-                      err.status = 404
-                      err.messages = [ { msg: "No hay usuarios" } ]
-                      return next(err);
-                    }
-                })
-  .catch( error => {
-  console.log(error);
-                      const err = {}
-                      err.status = 404
-                      err.messages = [ { msg: error } ]
-                      return next(err);
-                    })
+const users = (req,res,next) => {
+  return Users.findAll()
+  .then(users => {
+    if (users.length > 0) {
+      res.json(users); 
+    } else {
+      const err = new Error('No hay productos');
+      err.status = 404;
+      return next(err);
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    const err = new Error(error);
+    err.status = 500;
+    return next(err);
+  });
 }
 
 const homeView = (req, res) => {
@@ -46,16 +45,19 @@ const login = async (req, res) => {
   try{
       const user = await Users.findOne({ where: { email: email } });
       if (user && bcrypt.compareSync(contrasena, user.password)) {
-          res.cookie('username', user.name, {
-              maxAge: 1000 * 60 * 60 * 24,
-              httpOnly: true,
-            });
+          res.json({
+           canLogin: true,
+            })
+            
         req.session.userId = user.id 
         req.session.us = user.name;
         req.session.showGreeting = true;
         console.log(req.session)
         res.status(200)
       } else {
+        res.json({
+          canLogin: false,
+           })
         req.session.showGreeting = false;
        console.error("Usuario o contraseña incorrectas")
        
@@ -148,7 +150,7 @@ module.exports = {
   signUp,
   signUpView,
   logout,
-  usersView,
+  users,
   errorView,
   checkout,
   

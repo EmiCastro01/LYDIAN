@@ -1,11 +1,12 @@
 import React from 'react';
 import { useCartStore } from '../cartStorage';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {Header, Footer} from '../partials'
 
 const Checkout = () => {
   const { cart, totalAmount } = useCartStore();
+  const navigate = useNavigate();
 
   const handleCheckout = () => {
     const data = {
@@ -20,6 +21,7 @@ const Checkout = () => {
       .catch((error) => {
         console.error('Error al enviar la orden de compra al backend:', error);
       });
+      navigate('/')
   };
 
   return (
