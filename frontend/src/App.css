@@ -342,7 +342,10 @@ h3{
   box-shadow: 3px 3px 3px var(--shadow-color);
   margin-bottom: 15rem;
 }
-
+.cart-title{
+  color: var(--nav-bar-color);
+  margin-bottom: 1.2rem;
+}
 .cart-article {
   width: 100%;
   display: flex;
@@ -366,7 +369,7 @@ h3{
 }
 
 .delete-article {
-  background-color: rgba(128, 128, 128, 0.685);
+  background-color: var(--nav-bar-color);
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
@@ -390,6 +393,7 @@ h3{
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--main-color);
+  margin-top: 1.3rem;
 }
 
 .cart-total p {
@@ -406,6 +410,10 @@ h3{
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+.cart-buy-button:hover {
+  background-color: var(--main-color);
+}
 .seller{
   align-self: center;
 
@@ -415,20 +423,33 @@ p{
 }
 
 /* Register */
+
+.login-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .register-container {
   align-self: center;
   background-color: whitesmoke;
   margin: 3rem;
   padding: 2rem;
-  align-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 1rem;
   align-items: center;
   border: solid 1px var(--main-color);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-  width: 50%;
+  width: 20%;
+}
+
+label{
+  font-size: 1.3rem;
+  color: rgb(96, 26, 161);
+}
+.login-title{
+  font-size: 1.9rem;
 }
 
 .register-form {
@@ -445,7 +466,7 @@ p{
 
 .submit-button {
   margin-top: 1rem;
-  background-color: var(--header-color);
+  background-color: var(--main-color);
   padding: 0.8rem 1.2rem;
   border-radius: 5px;
   color: white;

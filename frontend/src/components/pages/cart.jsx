@@ -30,7 +30,10 @@ const Cart = () => {
       </header>
 
       <div className="cart-container">
-        <h1>Carrito de compras</h1>
+        <div className="cart-title">
+        <h1 >Carrito de compras</h1>
+        </div>
+        
         {cart.length === 0 ? (
           <p>Tu carrito está vacío.</p>
         ) : (

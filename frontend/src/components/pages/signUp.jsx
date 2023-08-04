@@ -27,25 +27,31 @@ const SignUp = () => {
   
 return(
   <>
- <article className="register-container">
+  <div className="login-container">
+  <article className="register-container">
+    <h3 className="login-title">Registrarse</h3>
  <form onSubmit={handleFormSubmit} className="register-form" >
     <label htmlFor="name">Nombre</label>
     <input type="text" name="nombre" placeholder="Ingrese su nombre" id="name" required onChange={(e) => setDatos({ ...datos, nombre: e.target.value })}/>
-    <label htmlFor="email">e-mail</label>
+    <label htmlFor="email">E-mail</label>
     <input type="email" name="correo" placeholder="Ingrese su e-mail" id="email" required onChange={(e) => setDatos({ ...datos, correo: e.target.value })}/>
-    <label htmlFor="lastname">lastname</label>
+    <label htmlFor="lastname">Apellido</label>
     <input type="text" name="apellido" placeholder="Ingrese su apellido" id="lastname" required onChange={(e) => setDatos({ ...datos, apellido: e.target.value })}/>
     <label htmlFor="password">Contraseña</label>
     <input type="password" name="contrasena" placeholder="Ingrese su contraseña" id="password" required onChange={(e) => setDatos({ ...datos, contrasena: e.target.value })}/>
     <label htmlFor="domicilio">Domicilio</label>
     <input type="text" name="direccion" placeholder="Ingrese su domicilio" id="domicilio" required onChange={(e) => setDatos({ ...datos, direccion: e.target.value })}/>
-    <label htmlFor="numcel">Numero de Celular</label>
-    <input type="number" name="telefono" placeholder="Ingrese su numero de telefono" id="numcel" required onChange={(e) => setDatos({ ...datos, telefono: parseInt(e.target.value) })}/>
-    <button type="submit">Agregar usuario</button> 
+    <label htmlFor="numcel">Numero de Telefono</label>
+    <input type="number" name="telefono" placeholder="Telefono" id="numcel" required onChange={(e) => setDatos({ ...datos, telefono: parseInt(e.target.value) })}/>
+    <button  className="submit-button" type='submit'>
+            Registrarse
+          </button>
     <Link to="/login">Ya tengo usuario</Link>
     </form>
  </article>
      
+  </div>
+ 
     
 </>
 

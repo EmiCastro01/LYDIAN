@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import {Header, Footer} from '../partials'
 const Login = () => {
 
   const navigate = useNavigate();
@@ -23,10 +24,11 @@ const Login = () => {
 
   return (
     <>
-      <article className="register-container">
+   <div className="login-container">
+   <article className="register-container">
         <h3 className="login-title">Inciar Sesión</h3>
         <form className="register-form" onSubmit={handleFormSubmit}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">E-mail</label>
           <input type="email" name="email" id="email" onChange={(e) => setDatos({ ...datos, email: e.target.value })} />
           <label htmlFor="password">Contraseña</label>
           <input type="password" name="password" id="password" onChange={(e) => setDatos({ ...datos, contrasena: e.target.value })} />
@@ -39,6 +41,8 @@ const Login = () => {
           </button>
         </form>
       </article>
+   </div>
+      
     </>
   )
 }
