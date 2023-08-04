@@ -18,7 +18,7 @@ const Header = () => {
           <Link to="/" className="index-link">INICIO</Link>
         </li>
         <li>
-          <a className="index-link" href="/">AYUDA</a>
+          <a className="index-link" >AYUDA</a>
         </li>
       </ul>
       <div className="icon-container">
