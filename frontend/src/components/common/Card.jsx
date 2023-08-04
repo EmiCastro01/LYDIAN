@@ -46,7 +46,7 @@ const Card = (props) => {
             <Link className="link-button-add-cart"to="" onClick={handleAddToCart}>
               Agregar al Carrito
             </Link>
-            <Link className="link-button-detail-product" to={`/detail-product/${props.id}`}>Ver detalle</Link>
+            <Link className="link-button-detail-product" to={`/detail-product/${props.id}`}>Detalles</Link>
           </div>
         </div>
       </article>
