@@ -59,7 +59,7 @@ const login = async (req, res) => {
         res.status(200)
       } else {
         const error = "Error en el registro"
-        res.error(error)
+        res.send(error)
         req.session.showGreeting = false;
        console.error("Usuario o contraseña incorrectas")
        

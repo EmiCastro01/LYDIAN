@@ -7,7 +7,7 @@ import { dataContext } from '../dataContext';
 
 const Checkout = () => {
   const {userData} = useContext(dataContext)
-  const { cart, totalAmount } = useCartStore();
+  const { cart, totalAmount, clearCart } = useCartStore();
   const navigate = useNavigate();
 
   const handleCheckout = () => {
@@ -25,7 +25,8 @@ const Checkout = () => {
       .catch((error) => {
         console.error('Error al enviar la orden de compra al backend:', error);
       });
-      navigate('/')
+      clearCart()
+      navigate('/thanks')
   };
 
   return (
