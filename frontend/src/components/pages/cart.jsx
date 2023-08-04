@@ -18,7 +18,6 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    // Calcula el total cada vez que cambie el carrito de compras
     const totalAmount = cart.reduce((total, product) => total + product.price, 0);
     setTotal(totalAmount);
   }, [cart]);
