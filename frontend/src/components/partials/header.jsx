@@ -20,16 +20,14 @@ const Header = () => {
     <Link to="/cart"  className="material-symbols-outlined">
       shopping_cart
       </Link>
-      <div className="user-info-container">
   <Link to="/user" className="material-symbols-outlined">
     account_circle
-    <p>{userData}</p>
   </Link>
-</div>     
-       
+  <p className="name-user-info">{userData}</p>
   </div>
    </>
-  );
+  )
+  ;
 };
 
 export default Header;

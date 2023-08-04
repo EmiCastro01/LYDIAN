@@ -68,7 +68,10 @@ body {
   justify-content: space-between;
   gap:3rem;
 }
-
+.name-user-info{
+  align-self: center;
+  color: var(--main-color);
+}
 .banner {
   width: 100%;
   height: 15vh;
@@ -590,22 +593,4 @@ label{
   font-size: 1rem;
   text-decoration: none;
   margin-top: 1rem;
-}
-.user-info-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.user-info-container a {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  text-decoration: none;
-  color: var(--main-color);
-}
-
-.user-info-container p {
-  font-size: 0.8rem;
-  margin: 0;
 }
