@@ -110,6 +110,7 @@ const Home = () => {
               <option value="Accesorios">Accesorios</option>
               <option value="Percusion">Percusión</option>
               <option value="Cuerdas">Cuerdas</option>
+              <option value="Viento">Vientos</option>
             </select>
           </section>
           <section className="products-section">

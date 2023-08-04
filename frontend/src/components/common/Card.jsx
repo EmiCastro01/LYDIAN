@@ -25,12 +25,17 @@ const Card = (props) => {
           <img className="product" src={props.productImg} alt="product" />
         </div>
         <div className="product-details">
-          <div className="product-name">
+          <div className="product-name-info">
             <h3 >{props.productName}</h3>
           </div>
+          <div calssName="product-price-info">
+          <h3>$ {props.productPrice}</h3>
+          </div>
+          
+
           <div className="price-details">
-            <p>Precio: ${props.productPrice}</p>
-            <p>Vendedor: {props.productSeller}</p>
+           
+          
             <Link className="link-button-add-cart"to="" onClick={handleAddToCart}>
               Agregar al Carrito
             </Link>

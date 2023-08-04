@@ -37,7 +37,7 @@ const DetailProduct = () => {
         <div className="product-detail-content">
           <div className="product-detail-info">
             <h2 className="product-detail-name">{product.name}</h2>
-            <h3 className="product-detail-price">{product.price}</h3>
+            <h3 className="product-detail-price">$ {product.price}</h3>
             <p className="product-detail-description">{product.cap}</p>
           </div>
           <div className="product-detail-buttons">

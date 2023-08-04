@@ -59,8 +59,14 @@ body {
 }
 
 .nav-bar-links li a {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--main-color);
+  padding: 2rem;
+}
+.icon-container{
+  display:flex;
+  justify-content: space-between;
+  gap:3rem;
 }
 
 .banner {
@@ -135,6 +141,7 @@ body {
 }
 
 .product-content {
+
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -146,14 +153,23 @@ body {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
-
+.product-details{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 .product-content:hover {
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4);
   transform: scale(1.009);
 }
 
 .product-content img {
-  width: 10rem;
+  align-self: center;
+  max-height: 10rem;
+}
+.product-name-info{
+  font-size: 1.3rem;
 }
 
 .product-content .product-name {
@@ -172,10 +188,10 @@ body {
 .link-button-detail-product {
   display: inline-block;
   padding: 10px 20px;
-  background-color: var(--nav-bar-color);
+  background-color:var(--nav-bar-color);
   color: #fff;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -184,21 +200,25 @@ body {
 .link-button-add-cart {
   display: inline-block;
   padding: 10px 20px;
-  background-color: var(--main-color);
+  background-color: var(--nav-bar-color);
   color: #fff;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .link-button-detail-product:hover {
-  background-color: darkcyan;
+  background-color: var(--main-color);
 }
 
 .link-button-add-cart:hover {
-  background-color: darkcyan;
+  background-color: var(--main-color);
+}
+h3{
+  align-self: center;
+  color: var(--main-color);
 }
 
 /* FOOTER */
@@ -233,6 +253,7 @@ body {
 }
 
 /* Product detail */
+
 .product-detail-container {
   display: flex;
   justify-content: space-evenly;
@@ -249,7 +270,9 @@ body {
 .product-detail-img {
   padding: 1rem;
 }
-
+.product-detail-img img{
+  width: 50%;
+}
 .product-detail-content {
   display: flex;
   flex-direction: column;
@@ -383,9 +406,12 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.seller{
+  align-self: center;
 
-.cart-buy-button:hover {
-  background-color: var(--main-color);
+}
+p{
+  align-self: center;
 }
 
 /* Register */
