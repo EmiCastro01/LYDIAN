@@ -19,6 +19,7 @@ const Login = () => {
     axios.post('http://localhost:3000/login', datos)
       .then(response => {
         if (!response.data.canLogin) {
+          console.log("SDASDASDSDADAS")
           setErrorMessage('Usuario o contraseña incorrectos');
         } else {
           setUserData({

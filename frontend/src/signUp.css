@@ -27,7 +27,7 @@
 .signup-aside-container {
   border: solid 1px var(--main-color);
   border-radius: 2%;
-  background-image: url(../public/image/bgr.jpg);
+  background-image: url(/image/bgr.jpg);
   background-position: center;
   background-color: var(--bg-main-color);
   padding: 2rem;

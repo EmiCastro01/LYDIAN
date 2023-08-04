@@ -58,9 +58,8 @@ const login = async (req, res) => {
         console.log(req.session)
         res.status(200)
       } else {
-        res.json({
-          canLogin: false,
-           })
+        const error = "Error en el registro"
+        res.send(error)
         req.session.showGreeting = false;
        console.error("Usuario o contraseña incorrectas")
        

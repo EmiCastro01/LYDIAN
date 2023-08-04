@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
+
 
 import '../../signup.css';
 
 const SignUp = () => {
+
+  const navigate = useNavigate()
   const [datos, setDatos] = useState({
     nombre: '',
     apellido: '',
@@ -18,13 +21,15 @@ const SignUp = () => {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    setErrorMessage(''); // Limpiar mensaje de error
+    setErrorMessage(''); 
 
     axios.post('http://localhost:3000/signup', datos)
-      .then(response => console.log(response))
+      .then(response => {
+       navigate('/login');
+      })
       .catch(err => {
         console.log(err);
-        setErrorMessage('Error en el registro. Por favor, intente nuevamente.'); // Mostrar mensaje de error
+        setErrorMessage('Error en el registro. Por favor, intente nuevamente.')
       });
   }
 

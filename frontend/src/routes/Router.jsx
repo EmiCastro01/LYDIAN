@@ -6,7 +6,7 @@ import DetailProduct from "../components/pages/detailProduct";
 import Cart from "../components/pages/cart";
 import Checkout from "../components/pages/checkout";
 import User from "../components/pages/user";
- 
+import ThanksMessage from "../components/pages/afterPay";
 
 export const routesConfig = [
   {
@@ -48,6 +48,11 @@ export const routesConfig = [
     path: '/user',
     component: User,
     name: 'USUARIO'
+  },
+  {
+    path: '/thanks',
+    component: ThanksMessage,
+    name: 'GRACIAS'
   }
 
 ]

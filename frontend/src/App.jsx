@@ -9,7 +9,7 @@ import SignUp from './components/pages/signUp';
 import Login from './components/pages/login'
 import Header from './components/partials/header'
 import Footer from './components/partials/footer'
-import RouterApp from './routes/router';
+import RouterApp from './routes/Router';
 import './App.css'
 import DataProvider from './components/dataContext';
 
