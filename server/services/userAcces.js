@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const  User = require('../models').user;
+const Order = require('../models').order;
 const bcrypt = require('bcrypt');
 
 
@@ -32,7 +33,21 @@ return await User.create(newUser)
   }
 }
 
-
+writeCheckout = async (checkoutData) => {
+  try {
+    const newCheck = {
+      userId: parseInt(checkoutData.Id),
+      total: checkoutData.total,
+      status: 'checked',
+      address: checkoutData.domicilio
+    }
+return await Order.create(newCheck)
+    
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+}
 const delUsers = async (userId) => {
   try {
     await User.destroy({

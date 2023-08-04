@@ -8,25 +8,24 @@ const Products = require('../models').producto;
 
 
 
-  const productsView = (req,res,next) => {
-    return  Products.findAll()
-    .then( Products => {  
-                  if( Products ) {res.render(path.join(__dirname, '../views/products.ejs'), { Products })}
-                  else {
-                         const err = {}
-                        err.status = 404
-                        err.messages = [ { msg: "No hay productos" } ]
-                        return next(err);
-                      }
-                  })
-    .catch( error => {
-    console.log(error);
-                        const err = {}
-                        err.status = 404
-                        err.messages = [ { msg: error } ]
-                        return next(err);
-                      })
-  }
+const productsView = (req, res, next) => {
+  return Products.findAll()
+    .then(products => {
+      if (products.length > 0) {
+        res.json(products); // Devuelve los productos como respuesta JSON
+      } else {
+        const err = new Error('No hay productos');
+        err.status = 404;
+        return next(err);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      const err = new Error(error);
+      err.status = 500;
+      return next(err);
+    });
+};
 
   const detailProduct = async (req, res, next) => {
     try {
