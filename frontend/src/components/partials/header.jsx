@@ -19,10 +19,7 @@ const Header = () => {
       </Link>
       <Link to="/user" className="material-symbols-outlined">
         account_circle
-        </Link> 
-        <Link className="material-symbols-outlined">
-          search
-          </Link>             
+        </Link>              
   </div>
    </>
   );

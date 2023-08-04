@@ -86,6 +86,11 @@ const Home = () => {
               <h2 className="product-path">Aplicar Filtros</h2>
             </div>
             <input
+              type="text"
+              placeholder="Buscar "
+              onChange={handleNameFilterChange}
+            />
+            <input
               type="number"
               placeholder="Precio Mínimo"
               value={priceFilter.min}
@@ -96,11 +101,6 @@ const Home = () => {
               placeholder="Precio Máximo"
               value={priceFilter.max}
               onChange={handleMaxPriceFilterChange}
-            />
-            <input
-              type="text"
-              placeholder="Buscar por nombre"
-              onChange={handleNameFilterChange}
             />
             <select
               value={categoryFilter}

@@ -2,6 +2,7 @@ import React from 'react';
 import { useCartStore } from '../cartStorage';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {Header, Footer} from '../partials'
 
 const Checkout = () => {
   const { cart, totalAmount } = useCartStore();
@@ -10,7 +11,7 @@ const Checkout = () => {
     const data = {
       cart,
       totalAmount,
-    }
+    };
 
     axios.post('http://localhost:3000/checkout', data)
       .then((response) => {
@@ -22,21 +23,34 @@ const Checkout = () => {
   };
 
   return (
-    <>
-      <h1>Checkout</h1>
-      <ul>
+   <>
+   <header className="header">
+   <Header />
+   </header>
+   
+   <div className="checkout-container">
+      <h1 className="checkout-title">Orden de Compra</h1>
+      <ul className="checkout-items">
         {cart.map((item) => (
-          <li key={item.id}>
-            {item.name} - Cantidad: {item.quantity} - Precio unitario: {item.price}
+          <li key={item.id} className="checkout-item">
+            <span className="item-name">{item.name}</span>
+            <span className="item-quantity">Cantidad: {item.quantity}</span>
+            <span className="item-price">Precio unitario: ${item.price}</span>
           </li>
         ))}
       </ul>
-      <p>Total: {totalAmount}</p>
+      <p className="checkout-total">Total: ${totalAmount}</p>
 
-      <button onClick={handleCheckout}>Confirmar Pago</button>
+      <button className="checkout-button" onClick={handleCheckout}>Confirmar Pago</button>
 
-      <Link to="/cart">Volver al carrito</Link>
-    </>
+      <Link to="/cart" className="checkout-back-link">Volver al carrito</Link>
+    </div>
+    <footer className="footer">
+    <Footer />
+    </footer>
+    
+   </> 
+    
   );
 };
 
