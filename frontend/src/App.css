@@ -591,3 +591,21 @@ label{
   text-decoration: none;
   margin-top: 1rem;
 }
+.user-info-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-info-container a {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.user-info-container p {
+  font-size: 0.8rem;
+  margin: 0;
+}

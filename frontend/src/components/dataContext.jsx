@@ -7,9 +7,9 @@ export const dataContext = createContext();
 const DataProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const { addToCart, removeFromCart, clearCart } = useCartStore();
+  const [userData, setUserData] = useState(null)
 
   useEffect(() => {
-    // Realizar la petición axios solo una vez al cargar la página
     axios.get("http://localhost:3000/products")
       .then((response) => response.data)
       .then((products) => setProducts(products))
@@ -17,7 +17,9 @@ const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <dataContext.Provider value={{ products, addToCart, removeFromCart, clearCart }}>
+    <dataContext.Provider
+      value={{ products, addToCart, removeFromCart, clearCart, userData, setUserData }}
+    >
       {children}
     </dataContext.Provider>
   );

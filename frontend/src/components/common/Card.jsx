@@ -1,21 +1,29 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCartStore } from '../cartStorage';
+import {dataContext} from '../dataContext'
 
 const Card = (props) => {
   const { addToCart } = useCartStore();
+  const {userData} = useContext(dataContext)
+  const navigate = useNavigate();
 
   const handleAddToCart = (event) => {
-    event.preventDefault();
-    // Llamar a la función addToCart del contexto para agregar el producto al carrito
-    addToCart({
-      id: props.id,
-      name: props.productName,
-      price: props.productPrice,
-      seller: props.productSeller,
-      imageSrc: props.productImg,
-    });
-    console.log('Producto agregado al carrito:', props.productName);
+    if(userData){
+      event.preventDefault();
+    
+      addToCart({
+        id: props.id,
+        name: props.productName,
+        price: props.productPrice,
+        seller: props.productSeller,
+        imageSrc: props.productImg,
+      });
+      console.log('Producto agregado al carrito:', props.productName);
+    }else{
+      window.location.href = '/register'
+    }
+
   };
 
   return (

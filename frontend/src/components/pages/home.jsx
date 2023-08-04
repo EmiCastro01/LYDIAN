@@ -1,10 +1,10 @@
 import Card from '../common/Card';
 import { Header, Footer } from '../partials';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
   const [priceFilter, setPriceFilter] = useState({
     min: "",
     max: "",
@@ -117,7 +117,7 @@ const Home = () => {
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <div key={product.id}>
-                  <Card
+                  <Card 
                     productName={product.name}
                     productImg={product.imageSrc}
                     productPrice={product.price}

@@ -1,7 +1,10 @@
 import logo from '../../assets/logo.png'
 import {Link} from 'react-router-dom'
+import {dataContext} from '../dataContext';
+import {useContext} from 'react';
 
 const Header = () => {
+  const {userData} = useContext(dataContext)
   return (
    <>
     <img src={logo} alt="logo" className="logo" />
@@ -17,9 +20,13 @@ const Header = () => {
     <Link to="/cart"  className="material-symbols-outlined">
       shopping_cart
       </Link>
-      <Link to="/user" className="material-symbols-outlined">
-        account_circle
-        </Link>              
+      <div className="user-info-container">
+  <Link to="/user" className="material-symbols-outlined">
+    account_circle
+    <p>{userData}</p>
+  </Link>
+</div>     
+       
   </div>
    </>
   );

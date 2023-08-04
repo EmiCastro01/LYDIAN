@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { Header, Footer } from '../partials';
-
+import { dataContext } from '../dataContext'; 
 const Login = () => {
+  const { setUserData } = useContext(dataContext);
   const [canLogIn, setCanLogIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -14,17 +15,14 @@ const Login = () => {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    console.log("HOLAAA");
 
     axios.post('http://localhost:3000/login', datos)
       .then(response => {
-        console.log("Respuesta del servidor:")
-        console.log(response.data.canLogin);
-        setCanLogIn(response.data.canLogin);
         if (!response.data.canLogin) {
-          setErrorMessage('Usuario o contraseña incorrectos'); 
+          setErrorMessage('Usuario o contraseña incorrectos');
         } else {
-          navigate('/'); 
+          setUserData(response.data.username); // guardo la info del usuario en el contexto
+          navigate('/');
         }
       })
       .catch(err => console.log(err));
@@ -32,7 +30,6 @@ const Login = () => {
 
   return (
     <>
-     
       <div className="login-container">
         <article className="register-container">
           <h3 className="login-title">Iniciar Sesión</h3>
@@ -54,7 +51,6 @@ const Login = () => {
           </form>
         </article>
       </div>
-     
     </>
   );
 }

@@ -47,6 +47,7 @@ const login = async (req, res) => {
       if (user && bcrypt.compareSync(contrasena, user.password)) {
           res.json({
            canLogin: true,
+           username: user.name,
             })
             
         req.session.userId = user.id 
