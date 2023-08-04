@@ -53,13 +53,13 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` int NOT NULL AUTO_INCREMENT,
   `userId` int DEFAULT NULL,
-  `tota` decimal(10,0) DEFAULT NULL,
+  `total` decimal(10,0) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +68,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (11,0,250000,'checked','Bv Peron 1150','2023-08-04 08:25:11','2023-08-04 08:25:11'),(12,0,289900,'checked','Bv Peron 1150','2023-08-04 08:40:58','2023-08-04 08:40:58');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +99,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (7,'Guitarra Fender',250000,'Cuerdas','Emi Castro','2023-08-02 17:53:08','2023-08-02 17:53:08','/image/fender-acoustic.jpg','Es una guitarra muy linda'),(9,'Cuerdas Daddario',3000,'Accesorios','Olmos Music','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/daddario.jpg','asd'),(10,'Bateria Alesis Nitro Mesh',500000,'Percusion','Olmos Music','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/alesis-nitromesh.jpg','asd'),(11,'Guitarra Acustica Taylor',36900,'Cuerdas','Emi Castro','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/taylor-acoustic.jpg','asd'),(12,'Piano electrico ',100300,'Percusion','Gonza SerfaMusic','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/teclado.jpg','asd'),(16,'Bajo Electrico Ibanez',190999,'Cuerdas','Tres Octavas','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/bajo.jpg','asd'),(17,'Violin antiguo ',50800,'Cuerdas','Tres Octavas','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/violin.jpg','asd'),(18,'Pandereta washborn',800,'Accesorios','Olmos Music','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/pandereta.jpg','asd'),(19,'Guitarra Alpujarra',90000,'Cuerdas','Estefania Arias','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/alpujarra.jpg',NULL),(20,'Amplificador Marshall',84000,'Accesorios','Tres Octavas','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/ampli.jpg',NULL),(21,'Harpa Nogan',1400000,'Cuerdas','Guitar Center','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/harpa.jpg',NULL),(22,'Ukelele Ibanez',24500,'Cuerdas','Blue Note','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/ukulele1.jpg',NULL),(23,'Guitarra Electrica Ibanez',92300,'Cuerdas','Blue Note','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/guitarraIbanez.jpg',NULL),(24,'Flauta',3000,'Viento','Libreria Guemes','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/flauta.jpg',NULL),(25,'Puas varias',600,'Accesorios','Emi Castro','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/puas.jpg',NULL);
+INSERT INTO `productos` VALUES (7,'Guitarra Fender',250000,'Cuerdas','Emi Castro','2023-08-02 17:53:08','2023-08-02 17:53:08','/image/fender-acoustic.jpg','Es una guitarra muy linda'),(9,'Cuerdas Daddario',3000,'Accesorios','Olmos Music','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/daddario.jpg','Cuerdas 0.11 para guitarra acustica'),(10,'Bateria Alesis Nitro Mesh',500000,'Percusion','Olmos Music','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/alesis-nitromesh.jpg','Bateria electronica, tiene choke en dos de los platillos'),(11,'Guitarra Acustica Taylor',36900,'Cuerdas','Emi Castro','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/taylor-acoustic.jpg','Guitarra Taylor nueva. Sin uso'),(12,'Piano electrico ',100300,'Percusion','Gonza SerfaMusic','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/teclado.jpg','Piano electrico con pedalera tripe. Conexion a MIDI '),(16,'Bajo Electrico Ibanez',190999,'Cuerdas','Tres Octavas','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/bajo.jpg','Bajo electrico. viene con el ampli. perfecto estado'),(17,'Violin antiguo ',50800,'Cuerdas','Tres Octavas','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/violin.jpg','Violin antiguo de la epoca de mi abuelo xd'),(18,'Pandereta washborn',800,'Accesorios','Olmos Music','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/pandereta.jpg','Pandereta moderna. '),(19,'Guitarra Alpujarra',90000,'Cuerdas','Estefania Arias','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/alpujarra.jpg','Guitarra electroacustica. Viene con afinador integrado. Muy linda'),(20,'Amplificador Marshall',84000,'Accesorios','Tres Octavas','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/ampli.jpg','Cualquier consulta al mp!!'),(21,'Harpa Nogan',1400000,'Cuerdas','Guitar Center','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/harpa.jpg','Harpa traida desde singapore. poor eso el precio'),(22,'Ukelele Ibanez',24500,'Cuerdas','Blue Note','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/ukulele1.jpg','ukelele ibanez. se desafina todo el tiempo. pero cuando te faltan cuerdas en la guitarra va como piña'),(23,'Guitarra Electrica Ibanez',92300,'Cuerdas','Blue Note','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/guitarraIbanez.jpg','esta buena, tiene buenas pastillas. como nueva'),(24,'Flauta',3000,'Viento','Libreria Guemes','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/flauta.jpg','flauta. que descripcion podria tener una flauta'),(25,'Puas varias',600,'Accesorios','Emi Castro','2023-08-02 21:42:12','2023-08-02 21:42:12','/image/puas.jpg','puas');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-04  4:12:19
+-- Dump completed on 2023-08-04  5:42:15

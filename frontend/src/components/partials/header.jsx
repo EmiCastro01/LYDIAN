@@ -23,8 +23,8 @@ const Header = () => {
   <Link to="/user" className="material-symbols-outlined">
     account_circle
   </Link>
-  <p className="name-user-info">{userData.username}</p>
-  </div>
+  <p className="name-user-info">{userData?.username}</p>
+    </div>
    </>
   )
   ;
