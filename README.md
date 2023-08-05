@@ -1,4 +1,4 @@
-# Castro-LYDIAN
+# LYDIAN
 ## ¿Quienes somos?
 Somos una empresa de e-commerce. Hacemos venta de instrumentos musicales.
 Acá encontrarás variedad en de precios y calidad, como en ningun otro lado!
