@@ -500,12 +500,12 @@ label{
   border-radius: 5px;
   color: white;
   cursor: pointer;
+  border: none;
   transition: all 0.2s ease;
 }
 
 .submit-button:hover {
   background-color: var(--secondary-color);
-  transform: scale(1.08);
 }
 
 .forgot-password {
