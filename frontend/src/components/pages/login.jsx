@@ -3,9 +3,11 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { Header, Footer } from '../partials';
 import { dataContext } from '../dataContext'; 
+import { useCookies}  from 'react-cookie';
+const unDia = 60 * 60 * 24	
 const Login = () => {
+  const [cookies, setCookie] =  useCookies(['userData']);  
   const { setUserData } = useContext(dataContext);
-  const [canLogIn, setCanLogIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const [datos, setDatos] = useState({
@@ -22,12 +24,8 @@ const Login = () => {
           console.log("SDASDASDSDADAS")
           setErrorMessage('Usuario o contraseña incorrectos');
         } else {
-          setUserData({
-            canLogin: response.data.canLogin,
-            username: response.data.username,
-            domicilio: response.data.domicilio,
-            id: response.data.id
-          }); // guardo la info del usuario en el contexto
+          setCookie('userData', response.data, { path: '/', maxAge: unDia }); //genro la cookie 
+          setUserData(response.data); // guardo la info de la cookie en el contexto
           navigate('/');
         }
       })

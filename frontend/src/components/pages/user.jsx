@@ -2,13 +2,16 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { dataContext } from '../dataContext';
 import { Header, Footer } from '../partials';
+import { useCookies} from 'react-cookie'
 
 const User = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(['userData']);
   const { userData, setUserData } = useContext(dataContext);
 
   const handleClick = (e) => {
     e.preventDefault();
     setUserData(null);
+    removeCookie('userData', { path: '/' });
     window.location.href = "/register";
   };
 
