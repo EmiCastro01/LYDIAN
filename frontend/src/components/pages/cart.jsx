@@ -51,11 +51,14 @@ const Cart = () => {
             <div className="cart-total">
               <h4>Total: <span className="total-cart">$ {total}</span></h4>
             </div>
-            <button className="cart-buy-button" onClick={() => handleGenerateOrder()}>Generar orden de compra</button>
-            {orderGenerated && (
+
+            
+            {orderGenerated ? (
               <Link to={'/checkout'} className="cart-buy-button">
                 Ir a Checkout
               </Link>
+            ) : (
+              <button className="cart-buy-button" onClick={() => handleGenerateOrder()}>Generar orden de compra</button>
             )}
           </>
         )}

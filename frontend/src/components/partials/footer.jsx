@@ -1,6 +1,6 @@
 import logo from '../../assets/logo.png'
 import facebookIcon from '../../assets/facebookIcon.svg'
-import isntagramIcon from '../../assets/instagramIcon.svg'
+import instagramIcon from '../../assets/instagramIcon.svg'
 import whatsappIcon from '../../assets/whatsappIcon.svg'
 
 
@@ -22,7 +22,7 @@ const Footer = () => {
 <div className="social-links">
   <img className="facebook-icon" src={facebookIcon} alt="facebook-icon" />
   <img className="whatsapp-icon"src={whatsappIcon} alt="whatsapp-icon" />
-  <img className="instagram-icon" src={isntagramIcon} alt="instagram-icon" />
+  <img className="instagram-icon" src={instagramIcon} alt="instagram-icon" />
 
 </div>
    </>
