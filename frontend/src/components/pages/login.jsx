@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import { Header, Footer } from '../partials';
+import logo from '../../assets/logo.png';
 import { dataContext } from '../dataContext'; 
 import { useCookies}  from 'react-cookie';
 const unDia = 60 * 60 * 24	
@@ -53,6 +53,10 @@ const Login = () => {
               Ingresar
             </button>
           </form>
+          <div className="login-logo-container">
+          <img src={logo} className="login-logo"/>
+          </div>
+          
         </article>
       </div>
     </>

@@ -448,8 +448,18 @@ p{
 }
 
 /* Register */
+.login-logo-container{
+  display:flex;
+  justify-content: center;
+}
 
+.login-logo{
+  
+  width: 20%;
+  margin-top: 2rem;
+}
 .login-container{
+  margin-top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -722,8 +732,5 @@ label{
     align-items: center;
   }
 }
-
-
-
 
 
